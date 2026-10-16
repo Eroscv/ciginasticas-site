@@ -91,8 +91,8 @@ header.scrolled{background:rgba(2,54,76,.95);backdrop-filter:blur(10px);box-shad
 .ring-photo-a img{object-position:50% 25%}
 .ring-photo-b{bottom:0;right:0;z-index:2;box-shadow:0 26px 50px rgba(0,0,0,.4)}
 .ring-photo-b img{object-position:50% 12%}
-.ring-badge{position:absolute;left:0;bottom:8%;background:var(--mat);color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:700;font-size:.88rem;padding:10px 16px;border-radius:999px;box-shadow:0 10px 20px rgba(0,0,0,.3);display:flex;align-items:center;gap:8px;z-index:3}
-.ring-badge svg{width:16px;height:16px;flex:none}
+.ring-badge{position:absolute;left:50%;bottom:-22px;transform:translateX(-50%);background:var(--mat);color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:700;font-size:.86rem;padding:10px 18px;border-radius:999px;box-shadow:0 12px 24px rgba(0,0,0,.35);display:flex;align-items:center;gap:8px;white-space:nowrap;z-index:3;border:3px solid var(--deep-2)}
+.ring-badge svg{width:15px;height:15px;flex:none}
 
 .stat-strip{position:relative;margin-top:70px;padding:30px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .stat-strip::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(217,141,150,.5),rgba(255,255,255,.22) 45%,rgba(169,216,230,.5))}
@@ -157,6 +157,24 @@ header.scrolled{background:rgba(2,54,76,.95);backdrop-filter:blur(10px);box-shad
 .contact h2{color:#fff}
 .contact .lead{color:rgba(255,255,255,.82)}
 .contact .cta{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+
+.info-card{margin-top:40px;padding-top:32px;border-top:1px solid rgba(255,255,255,.18);display:grid;gap:22px}
+.info-row{display:flex;gap:14px;align-items:flex-start}
+.info-row svg{flex:none;width:22px;height:22px;stroke:var(--sky);margin-top:2px}
+.info-row b{display:block;font-family:'Big Shoulders Display',sans-serif;font-weight:700;font-size:1.02rem;margin-bottom:2px}
+.info-row span,.info-row a{color:rgba(255,255,255,.8);font-size:.92rem}
+.info-row a{text-decoration:underline;text-decoration-color:rgba(255,255,255,.35);text-underline-offset:3px}
+.info-row a:hover{color:#fff}
+.hours-table{margin-top:8px;border-collapse:collapse;width:100%;max-width:340px}
+.hours-table td{padding:5px 0;font-size:.88rem;color:rgba(255,255,255,.75);border-bottom:1px solid rgba(255,255,255,.08)}
+.hours-table td:first-child{padding-right:18px}
+.hours-table td:last-child{text-align:right;white-space:nowrap}
+.hours-table tr.today td{color:#fff;font-weight:700}
+.hours-table tr.today td:first-child{position:relative}
+.hours-table tr.today td:first-child::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--mat);margin-right:8px}
+
+.map-wrap{margin-top:56px;border-radius:var(--r-md);overflow:hidden;box-shadow:0 24px 50px rgba(0,0,0,.35);line-height:0}
+.map-wrap iframe{width:100%;height:380px;border:0;display:block;filter:grayscale(.15) contrast(1.05)}
 .panel{background:#fff;border-radius:var(--r-md);padding:34px;box-shadow:0 30px 60px rgba(0,0,0,.35)}
 .panel h3{color:var(--deep);font-size:1.3rem;margin-bottom:22px}
 form{display:grid;gap:22px}
@@ -183,6 +201,8 @@ footer a:hover{color:#fff}
   .about-grid{grid-template-columns:1fr;gap:40px}
   .about-photo{max-width:380px}
   .contact-grid{grid-template-columns:1fr;gap:40px}
+  .map-wrap{margin-top:40px}
+  .map-wrap iframe{height:300px}
   .burger{display:block}
   .menu{position:absolute;top:80px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--deep-2);display:none;padding:8px 0}
   .menu.open{display:flex}
@@ -336,8 +356,34 @@ footer a:hover{color:#fff}
       <h2>Venha conhecer o CIG</h2>
       <p class="lead">Agende uma aula experimental gratuita e veja a ginástica de perto, com quem vai treinar seu filho ou filha.</p>
       <div class="cta">
-        <a class="btn btn-mat" href="https://wa.me/55DDDNUMERO" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+        <a class="btn btn-mat" href="https://wa.me/5519998044742" target="_blank" rel="noopener">Chamar no WhatsApp</a>
         <a class="btn btn-ghost" href="https://www.instagram.com/ciginasticas/" target="_blank" rel="noopener">Seguir no Instagram</a>
+      </div>
+
+      <div class="info-card">
+        <div class="info-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-7.4-7-12a7 7 0 0 1 14 0c0 4.6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <div><b>Endereço</b><span>R. Duque de Caxias, 248 – Vila Santa Catarina, Americana – SP, 13466-320</span></div>
+        </div>
+        <div class="info-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2.2z"/></svg>
+          <div><b>Telefone</b><span><a href="tel:+5519998044742">(19) 99804-4742</a></span></div>
+        </div>
+        <div class="info-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          <div>
+            <b>Horário de funcionamento</b>
+            <table class="hours-table">
+              <tr data-day="1"><td>Segunda-feira</td><td>09:00–11:00, 14:00–20:00</td></tr>
+              <tr data-day="2"><td>Terça-feira</td><td>09:00–11:00, 14:00–20:00</td></tr>
+              <tr data-day="3"><td>Quarta-feira</td><td>09:00–11:00, 14:00–20:00</td></tr>
+              <tr data-day="4"><td>Quinta-feira</td><td>09:00–11:00, 14:00–20:00</td></tr>
+              <tr data-day="5"><td>Sexta-feira</td><td>14:00–18:00</td></tr>
+              <tr data-day="6"><td>Sábado</td><td>Fechado</td></tr>
+              <tr data-day="0"><td>Domingo</td><td>Fechado</td></tr>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
     <div class="panel">
@@ -351,6 +397,12 @@ footer a:hover{color:#fff}
         <div class="field"><label for="msg">Mensagem (opcional)</label><textarea id="msg" name="msg"></textarea></div>
         <button class="btn btn-blue" type="submit">Enviar pelo WhatsApp</button>
       </form>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="map-wrap">
+      <iframe src="https://www.google.com/maps?q=R.+Duque+de+Caxias,+248+-+Vila+Santa+Catarina,+Americana+-+SP,+13466-320&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de localização do CIG – R. Duque de Caxias, 248, Americana-SP"></iframe>
     </div>
   </div>
 </section>
@@ -369,11 +421,13 @@ footer a:hover{color:#fff}
   const onScroll=()=>h.classList.toggle('scrolled',scrollY>40);
   onScroll();addEventListener('scroll',onScroll,{passive:true});
   document.getElementById('y').textContent=new Date().getFullYear();
+  const todayRow=document.querySelector(`.hours-table tr[data-day="${new Date().getDay()}"]`);
+  if(todayRow) todayRow.classList.add('today');
   document.getElementById('f').addEventListener('submit',e=>{
     e.preventDefault();
     const d=new FormData(e.target);
     const t=`Olá, CIG! Sou ${d.get('nome')}. Gostaria de uma aula experimental de ${d.get('mod')} para aluno de ${d.get('idade')} anos. ${d.get('msg')||''}`;
-    open('https://wa.me/55DDDNUMERO?text='+encodeURIComponent(t),'_blank');
+    open('https://wa.me/5519998044742?text='+encodeURIComponent(t),'_blank');
   });
 </script>
 </body>
