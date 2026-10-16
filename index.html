@@ -11,21 +11,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700;800;900&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#0a2032;
-  --deep:#063a5e;
-  --deep-2:#042a45;
-  --mid:#0e6aa3;
-  --sky:#9fd3ec;
-  --mat:#b23b3b;
-  --mat-dark:#8f2e2e;
+  --ink:#0f2029;
+  --deep:#015379;
+  --deep-2:#02364c;
+  --mid:#1c7ca3;
+  --sky:#a9d8e6;
+  --mat:#8f2e3b;
+  --mat-dark:#6c2029;
   --gold:#c6972f;
-  --chalk:#f2f6f8;
+  --chalk:#f2f6f7;
   --paper:#ffffff;
   --muted:#4d6377;
   --line:#dde7ec;
   --r-sm:10px;
   --r-md:16px;
-  --shadow:0 18px 40px rgba(6,58,94,.14);
+  --shadow:0 18px 40px rgba(1,83,121,.14);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:scroll-behavior}
@@ -49,11 +49,12 @@ h3{font-weight:700}
 :focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 
 /* header */
-header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,box-shadow .3s}
-header.scrolled{background:rgba(6,58,94,.95);backdrop-filter:blur(10px);box-shadow:0 4px 24px rgba(0,0,0,.16)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:78px}
-.brand{display:flex;align-items:center;gap:10px;color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:1.3rem}
-.brand img{width:40px;height:40px;border-radius:50%;object-fit:cover}
+.brand-bar{position:fixed;inset:0 0 auto 0;z-index:51;height:4px;background:linear-gradient(90deg,var(--mat),var(--deep) 55%,var(--mid))}
+header{position:fixed;inset:4px 0 auto 0;z-index:50;transition:background .3s,box-shadow .3s,padding .3s}
+header.scrolled{background:rgba(2,54,76,.95);backdrop-filter:blur(10px);box-shadow:0 4px 24px rgba(0,0,0,.18)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{display:flex;align-items:center;gap:12px;color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:.02em}
+.brand img{height:40px;width:auto;display:block}
 .menu{display:flex;align-items:center;gap:30px;list-style:none}
 .menu a{color:#fff;font-size:.92rem;font-weight:600;opacity:.88;padding:6px 0;border-bottom:2px solid transparent}
 .menu a:hover{opacity:1;border-color:var(--sky)}
@@ -63,9 +64,10 @@ header.scrolled{background:rgba(6,58,94,.95);backdrop-filter:blur(10px);box-shad
 
 /* hero */
 .hero{position:relative;color:#fff;overflow:hidden;background:
-  radial-gradient(760px 520px at 88% 8%,rgba(159,211,236,.22),transparent 60%),
+  radial-gradient(640px 480px at 92% 4%,rgba(169,216,230,.24),transparent 62%),
+  radial-gradient(520px 420px at 6% 86%,rgba(143,46,59,.28),transparent 60%),
   linear-gradient(165deg,var(--mid) 0%,var(--deep) 48%,var(--deep-2) 100%);
-  padding:160px 0 0}
+  padding:156px 0 0}
 .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;position:relative}
 .hero-intro{color:var(--sky);font-size:1rem;font-weight:600;margin-bottom:18px}
 .hero h1{font-size:clamp(2.6rem,6vw,4.4rem);font-weight:800;line-height:1.02;max-width:14ch}
@@ -74,7 +76,9 @@ header.scrolled{background:rgba(6,58,94,.95);backdrop-filter:blur(10px);box-shad
 
 .ring-wrap{position:relative;width:min(420px,88vw);aspect-ratio:1;margin-inline:auto}
 .ring-wrap svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.ring-deco{stroke:var(--sky);stroke-width:3;fill:none;opacity:.55}
+.ring-deco{stroke:var(--sky);stroke-width:3;fill:none;opacity:.6}
+.ring-deco-a{stroke:#d98d96}
+.ring-deco-b{stroke:var(--sky)}
 .ring-draw{stroke-dasharray:720;stroke-dashoffset:720}
 @media(prefers-reduced-motion:no-preference){
   .ring-draw{animation:draw 1.6s .2s cubic-bezier(.3,.7,.2,1) forwards}
@@ -90,7 +94,8 @@ header.scrolled{background:rgba(6,58,94,.95);backdrop-filter:blur(10px);box-shad
 .ring-badge{position:absolute;left:0;bottom:8%;background:var(--mat);color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:700;font-size:.88rem;padding:10px 16px;border-radius:999px;box-shadow:0 10px 20px rgba(0,0,0,.3);display:flex;align-items:center;gap:8px;z-index:3}
 .ring-badge svg{width:16px;height:16px;flex:none}
 
-.stat-strip{margin-top:70px;padding:30px 0;border-top:1px solid rgba(255,255,255,.18);display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.stat-strip{position:relative;margin-top:70px;padding:30px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.stat-strip::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(217,141,150,.5),rgba(255,255,255,.22) 45%,rgba(169,216,230,.5))}
 .stat-strip div{display:flex;align-items:flex-start;gap:12px}
 .stat-strip svg{flex:none;width:26px;height:26px;stroke:var(--sky);margin-top:2px}
 .stat-strip b{display:block;font-family:'Big Shoulders Display',sans-serif;font-size:1.05rem;font-weight:700}
@@ -179,7 +184,7 @@ footer a:hover{color:#fff}
   .about-photo{max-width:380px}
   .contact-grid{grid-template-columns:1fr;gap:40px}
   .burger{display:block}
-  .menu{position:absolute;top:78px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--deep-2);display:none;padding:8px 0}
+  .menu{position:absolute;top:80px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--deep-2);display:none;padding:8px 0}
   .menu.open{display:flex}
   .menu a{padding:16px 24px;border-bottom:1px solid rgba(255,255,255,.08)}
   .menu .btn{margin:12px 24px}
@@ -195,9 +200,10 @@ footer a:hover{color:#fff}
 </head>
 <body>
 
+<div class="brand-bar" aria-hidden="true"></div>
 <header id="top">
   <div class="wrap nav">
-    <a href="#top" class="brand"><img src="logo.png" alt="Logo CIG"> CIG</a>
+    <a href="#top" class="brand"><img src="logo-mark.png" alt="Logo CIG"> CIG</a>
     <button class="burger" aria-label="Abrir menu" onclick="document.querySelector('.menu').classList.toggle('open')">☰</button>
     <ul class="menu" onclick="this.classList.remove('open')">
       <li><a href="#sobre">Sobre</a></li>
@@ -230,8 +236,8 @@ footer a:hover{color:#fff}
     </div>
 
     <div class="ring-wrap" aria-hidden="true">
-      <svg viewBox="0 0 400 400"><circle class="ring-deco" cx="150" cy="150" r="150"/><circle class="ring-deco" cx="250" cy="250" r="150"/></svg>
-      <svg viewBox="0 0 400 400"><circle class="ring-deco ring-draw" cx="250" cy="250" r="150" pathLength="720"/></svg>
+      <svg viewBox="0 0 400 400"><circle class="ring-deco ring-deco-a" cx="150" cy="150" r="150"/><circle class="ring-deco ring-deco-b" cx="250" cy="250" r="150"/></svg>
+      <svg viewBox="0 0 400 400"><circle class="ring-deco ring-deco-b ring-draw" cx="250" cy="250" r="150" pathLength="720"/></svg>
       <div class="ring-photo ring-photo-a"><img src="img/ginastica-aerobica.jpg" alt="Ginasta em salto na ginástica aeróbica"></div>
       <div class="ring-photo ring-photo-b"><img src="img/cig-03.jpg" alt="Ginasta do CIG em exercício na trave"></div>
       <div class="ring-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5 7 21l5-2.5L17 21l-1.5-8.5"/></svg>3º lugar · Jogos Regionais</div>
@@ -352,7 +358,7 @@ footer a:hover{color:#fff}
 
 <footer>
   <div class="wrap">
-    <a href="#top" class="brand"><img src="logo.png" alt="" style="width:34px;height:34px;border-radius:50%"> CIG</a>
+    <a href="#top" class="brand"><img src="logo-mark.png" alt="" style="height:32px;width:auto"> CIG</a>
     <span>© <span id="y"></span> CIG – Centro de Iniciação em Ginásticas, Americana-SP</span>
     <a href="https://www.instagram.com/ciginasticas/" target="_blank" rel="noopener">Instagram</a>
   </div>
